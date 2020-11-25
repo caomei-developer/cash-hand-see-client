@@ -1,0 +1,16 @@
+gen
+build/
+out/
+cash-hand-see-client.iml
+app/.gradle/
+app/app-release.apk
+app/app-debug.apk
+.idea/
+.gradle/
+app/build/
+gradle/
+gradlew
+gradlew.bat
+local.properties
+app/app.iml
+*.iml
