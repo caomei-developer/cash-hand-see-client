@@ -1,4 +1,4 @@
-package com.cash_hand_see_client.http
+package com.cash_hand_see_client.http.util
 
 import android.util.Log
 import okhttp3.Interceptor
@@ -12,18 +12,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-class NetworkExecutor private constructor() {
+class RetrofitClient private constructor() {
 
 
     companion object {
         @Volatile
-        private var mInstance: NetworkExecutor? = null
-        val instance: NetworkExecutor?
+        private var mInstance: RetrofitClient? = null
+        val instance: RetrofitClient?
             get() {
                 if (mInstance == null) {
-                    synchronized(NetworkExecutor::class.java) {
+                    synchronized(RetrofitClient::class.java) {
                         if (mInstance == null) {
-                            mInstance = NetworkExecutor()
+                            mInstance =
+                                RetrofitClient()
                         }
                     }
                 }
@@ -60,14 +61,13 @@ class NetworkExecutor private constructor() {
         return builder.build()
     }
 
-    fun retrofit(url: String) {
-        Retrofit.Builder()
+    fun retrofit(url: String): Retrofit {
+        return Retrofit.Builder()
             .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(okHttpClient())
             .build()
     }
-
 
 }

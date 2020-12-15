@@ -1,4 +1,4 @@
-package com.cash_hand_see_client.base
+package com.cash_hand_see_client.base.mvp.ui
 
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity

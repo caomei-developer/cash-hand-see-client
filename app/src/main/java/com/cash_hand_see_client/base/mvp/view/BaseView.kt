@@ -1,4 +1,4 @@
-package com.cash_hand_see_client.base.mvp
+package com.cash_hand_see_client.base.mvp.view
 
 import autodispose2.AutoDisposeConverter
 
